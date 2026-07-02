@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yuri's Library</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div id="background"></div>
+
+    <!-- Dark Overlay -->
+
+    <div id="overlay"></div>
+
+    <!-- Main Game -->
+
+    <main id="game">
+
+        <!-- Title -->
+
+        <header>
+
+            <h1>📚 Yuri's Library</h1>
+
+            <p id="subtitle">
+                A quiet place to spend time together.
+            </p>
+
+        </header>
+
+        <!-- Yuri -->
+
+        <section id="character-area">
+
+            <img
+                id="yuriSprite"
+                src="assets/sprites/yuri.png"
+                alt="Yuri">
+
+        </section>
+
+        <!-- Dialogue -->
+
+        <section id="dialogue-box">
+
+            <p id="speaker">
+                Yuri
+            </p>
+
+            <p id="dialogue">
+                Welcome...
+                I was hoping you would visit today.
+            </p>
+
+        </section>
+
+        <!-- Buttons -->
+
+        <section id="buttons">
+
+            <button id="talkButton">
+
+                💜 Talk
+
+            </button>
+
+            <button id="readButton" disabled>
+
+                📖 Read Together
+
+            </button>
+
+            <button id="teaButton" disabled>
+
+                🍵 Tea Time
+
+            </button>
+
+            <button id="musicButton" disabled>
+
+                🎵 Music
+
+            </button>
+
+        </section>
+
+        <!-- Status -->
+
+        <section id="status">
+
+            <div>
+
+                ❤️ Affection
+
+                <span id="affection">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div>
+
+                📅 Visits
+
+                <span id="visits">
+
+                    1
+
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="data/config.js"></script>
+    <script src="data/dialogues.js"></script>
+
+    <script src="engine/save.js"></script>
+    <script src="engine/dialogueEngine.js"></script>
+    <script src="engine/affection.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
