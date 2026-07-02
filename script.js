@@ -1,10 +1,14 @@
 /*
-==================================
+=========================================
 YURI'S LIBRARY
-Main Script
+Main Controller
 Version 1.0
-==================================
+=========================================
 */
+
+// ----------------------
+// HTML Elements
+// ----------------------
 
 const dialogueElement = document.getElementById("dialogue");
 const affectionElement = document.getElementById("affection");
@@ -13,60 +17,18 @@ const visitsElement = document.getElementById("visits");
 const talkButton = document.getElementById("talkButton");
 
 
-// --------------------
-// Default Save
-// --------------------
+// ----------------------
+// Global Save
+// ----------------------
 
-let saveData = {
-
-    affection: 0,
-
-    visits: 1,
-
-    seenDialogue: []
-
-};
+let saveData;
 
 
-// --------------------
-// Load Save
-// --------------------
+// ----------------------
+// UI
+// ----------------------
 
-function loadGame(){
-
-    const data = localStorage.getItem("yuriLibrarySave");
-
-    if(data){
-
-        saveData = JSON.parse(data);
-
-    }
-
-}
-
-
-// --------------------
-// Save Game
-// --------------------
-
-function saveGame(){
-
-    localStorage.setItem(
-
-        "yuriLibrarySave",
-
-        JSON.stringify(saveData)
-
-    );
-
-}
-
-
-// --------------------
-// Update UI
-// --------------------
-
-function updateUI(){
+function updateUI() {
 
     affectionElement.textContent = saveData.affection;
 
@@ -75,11 +37,32 @@ function updateUI(){
 }
 
 
-// --------------------
-// First Visit
-// --------------------
+// ----------------------
+// Talk
+// ----------------------
 
-function initializeGame(){
+function talk() {
+
+    const dialogue = getDialogue();
+
+    dialogueElement.classList.remove("fade");
+
+    void dialogueElement.offsetWidth;
+
+    dialogueElement.classList.add("fade");
+
+    dialogueElement.textContent = dialogue.text;
+
+    addAffection(dialogue.affection);
+
+}
+
+
+// ----------------------
+// Game Start
+// ----------------------
+
+function initializeGame() {
 
     loadGame();
 
@@ -92,48 +75,15 @@ function initializeGame(){
 }
 
 
-// --------------------
-// Talk
-// --------------------
-
-function talk(){
-
-    const dialogue = getDialogue();
-
-    dialogueElement.classList.remove("fade");
-
-    void dialogueElement.offsetWidth;
-
-    dialogueElement.classList.add("fade");
-
-    dialogueElement.textContent = dialogue.text;
-
-    if(dialogue.affection > 0){
-
-        addAffection(dialogue.affection);
-
-    }
-
-    saveGame();
-
-}
-
-
-// --------------------
+// ----------------------
 // Buttons
-// --------------------
+// ----------------------
 
-talkButton.addEventListener(
-
-    "click",
-
-    talk
-
-);
+talkButton.addEventListener("click", talk);
 
 
-// --------------------
-// Start
-// --------------------
+// ----------------------
+// Launch
+// ----------------------
 
 initializeGame();
