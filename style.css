@@ -1,1 +1,303 @@
+/* ===========================
+   YURI'S LIBRARY
+   Version 1.0
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family: Georgia, serif;
+
+    background:#1b1628;
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+/* Background */
+
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(20,18,35,.55),
+        rgba(20,18,35,.80)
+    ),
+    url("assets/backgrounds/library.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    z-index:-2;
+
+}
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.03),
+    rgba(0,0,0,.45));
+
+    z-index:-1;
+
+}
+
+/* Main */
+
+#game{
+
+    width:min(1200px,95vw);
+
+    margin:auto;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:30px;
+
+}
+
+/* Header */
+
+header{
+
+    text-align:center;
+
+}
+
+header h1{
+
+    font-size:3rem;
+
+    color:#dcbcff;
+
+    text-shadow:0 0 20px rgba(220,188,255,.25);
+
+}
+
+#subtitle{
+
+    margin-top:10px;
+
+    color:#d2c7e8;
+
+    font-style:italic;
+
+}
+
+/* Character */
+
+#character-area{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#yuriSprite{
+
+    max-height:70vh;
+
+    max-width:90%;
+
+    object-fit:contain;
+
+    transition:.5s;
+
+    filter:drop-shadow(0 0 18px rgba(0,0,0,.5));
+
+}
+
+/* Dialogue */
+
+#dialogue-box{
+
+    background:rgba(36,28,56,.85);
+
+    border:2px solid rgba(190,160,255,.35);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-top:15px;
+
+    backdrop-filter:blur(6px);
+
+}
+
+#speaker{
+
+    color:#d8b7ff;
+
+    font-weight:bold;
+
+    font-size:1.2rem;
+
+    margin-bottom:10px;
+
+}
+
+#dialogue{
+
+    line-height:1.7;
+
+    font-size:1.1rem;
+
+}
+
+/* Buttons */
+
+#buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+button{
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    background:#8b5dc9;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    background:#9d70da;
+
+}
+
+button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* Status */
+
+#status{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:rgba(20,20,35,.65);
+
+}
+
+#status span{
+
+    color:#f0c7ff;
+
+    font-weight:bold;
+
+}
+
+/* Fade Animation */
+
+.fade{
+
+    animation:fade .35s;
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    header h1{
+
+        font-size:2.1rem;
+
+    }
+
+    #yuriSprite{
+
+        max-height:45vh;
+
+    }
+
+    #dialogue{
+
+        font-size:1rem;
+
+    }
+
+}
